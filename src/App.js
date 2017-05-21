@@ -35,7 +35,9 @@ class Main extends React.Component {
           <div className="App-header">
             <h1>ROB the Robot</h1>
           </div>
-          <Board robotPos={this.props.robotPos} />
+          <Board
+            robotPos={this.props.robotPos}
+          />
           <Robot
             robotPos={this.props.robotPos}
             inputs={this.props.inputs}

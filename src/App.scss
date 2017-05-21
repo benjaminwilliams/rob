@@ -2,6 +2,11 @@
 
 // Common styles are placed here, component specific styles are places in the components folders
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 
 .App {
   max-width: 600px;

@@ -29,10 +29,11 @@ export default class Board extends React.Component{
   render(){
 
     const currentPos = this.props.robotPos.currentPos;
+    const isPlaced = this.props.robotPos.isPlaced;
+
     const robStyle = {
       left: currentPos[0] * 20 + '%',
-      top: 100 - (currentPos[1] * 20) + '%',
-      backgroundColor: "blue"
+      top: 100 - (currentPos[1] * 20) + '%'
      };
 
     return (
@@ -43,7 +44,7 @@ export default class Board extends React.Component{
           {this.renderBoardRow(2)}
           {this.renderBoardRow(1)}
           {this.renderBoardRow(0)}
-          <div className="rob" style={robStyle}></div>
+          <div className={`rob ${isPlaced ? "": "hidden"} ${currentPos[2]}`} style={robStyle}></div>
         </div>
       </div>
     )
