@@ -1,0 +1,31 @@
+.board {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column; }
+
+.board__row {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex: 1; }
+
+.board__tile {
+  flex: 1;
+  height: 100%;
+  border: 1px solid #999;
+  color: #aaa; }
+
+.rob {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  top: 10px;
+  left: 10px; }

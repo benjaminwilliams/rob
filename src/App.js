@@ -32,6 +32,9 @@ class Main extends React.Component {
   render() {
     return (
         <div className="App">
+          <div className="App-header">
+            <h1>ROB the Robot</h1>
+          </div>
           <Board robotPos={this.props.robotPos} />
           <Robot
             robotPos={this.props.robotPos}

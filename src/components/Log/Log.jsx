@@ -1,5 +1,5 @@
 import React from 'react';
-import './log.scss';
+import './log.css';
 
 
 export default class Log extends React.Component{
@@ -10,9 +10,10 @@ export default class Log extends React.Component{
   }
 
 
-  renderLogItem(message){
+  renderLogItem(message,key){
     return (
-      <div> > {message}</div>
+     <div key={key}> > {message}</div>
+
     )
 
   }
@@ -25,7 +26,7 @@ export default class Log extends React.Component{
     return (
       <div className="message-log">
         <h2>Message log</h2>
-        {log.map(message => this.renderLogItem(message))}
+        {log.map((message, key) => this.renderLogItem(message,key))}
       </div>
     )
   }
