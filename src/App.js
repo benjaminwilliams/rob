@@ -5,14 +5,17 @@ import * as actionCreators from './actions/actionCreators';
 
 import Robot from "./components/Robot/Robot";
 import Joypad from "./components/Joypad/Joypad";
+import Board from "./components/Board/Board";
 import './App.css';
 
 function mapStateToProps(state){
   return{
-    currentPos: state.currentPos,
+    robotPos: state.robotPos,
+    setCurrentPos: state.setCurrentPos,
     inputs: state.inputs,
     sendInput: state.sendInput,
-    inputFinished: state.inputFinished
+    inputFinished: state.inputFinished,
+    placeRobot: state.placeRobot
   }
 }
 
@@ -28,11 +31,14 @@ class Main extends React.Component {
         <div className="App">
           {this.props.inputs}
           <Robot
-            currentPos={this.props.currentPos}
+            robotPos={this.props.robotPos}
             inputs={this.props.inputs}
             inputFinished={this.props.inputFinished}
+            setCurrentPos={this.props.setCurrentPos}
+            placeRobot={this.props.placeRobot}
           />
-          <Joypad sendInput={this.props.sendInput} />
+          <Joypad sendInput={this.props.sendInput} setCurrentPos={this.props.setCurrentPos}/>
+          <Board robotPos={this.props.robotPos} />
         </div>
     );
   }

@@ -1,10 +1,10 @@
 
 import { combineReducers } from 'redux';
-import currentPos from './currentPos';
+import robotPos from './robotPos';
 import inputs from './inputs';
 
 const rootReducer = combineReducers({
-  currentPos,
+  robotPos,
   inputs
 });
 

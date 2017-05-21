@@ -4,8 +4,11 @@ import rootReducer from './reducers/index';
 const currentPos =[0,0,"N"];
 
 const defaultState = {
-  currentPos,
-  inputs: []
+  inputs: [],
+  robotPos: {
+    isPlaced: false,
+    currentPos
+  }
 };
 
 const store = createStore(rootReducer, defaultState,
