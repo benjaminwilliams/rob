@@ -85,7 +85,7 @@ export default class Robot extends React.Component{
         newPos = [x,y,f];
         break;
       case 'REPORT':
-        this.props.printToLog("current position- x: " + x + ", y: " + y + ", Direction: " + f);
+        this.props.printToLog(`current position: ${x},${y},${f}`);
         newPos = [x,y,f];
         break;
       case 'MOVE':
