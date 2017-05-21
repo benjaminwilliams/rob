@@ -8,9 +8,13 @@ export default class Robot extends React.Component{
     super(props)
   }
 
-  componentWillMount(){
-  }
 
+  componentWillReceiveProps(nextProps){
+    //check for incoming Prop changes
+    if(this.props.inputs !== nextProps.inputs){
+      console.log(nextProps.inputs);
+    }
+  }
 
   render(){
 
@@ -18,7 +22,10 @@ export default class Robot extends React.Component{
 
 
     return (
-      <div>Robot, current position: {currentPos}</div>
+      <div>
+        <div>Robot, current position: {currentPos}</div>
+        <div onClick={()=> this.props.inputFinished()}>finished</div>
+      </div>
     )
   }
 

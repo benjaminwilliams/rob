@@ -6,4 +6,15 @@ export function setCurrentPos(currentPos){
   }
 }
 
+export function sendInput(input){
+  return {
+    type: 'SEND_INPUT',
+    input
+  }
+}
 
+export function inputFinished(){
+  return {
+    type: 'INPUT_FINISHED',
+  }
+}

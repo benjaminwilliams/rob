@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 import * as actionCreators from './actions/actionCreators';
 
 import Robot from "./components/Robot/Robot";
+import Joypad from "./components/Joypad/Joypad";
 import './App.css';
 
 function mapStateToProps(state){
   return{
-    currentPos: state.currentPos
+    currentPos: state.currentPos,
+    inputs: state.inputs,
+    sendInput: state.sendInput,
+    inputFinished: state.inputFinished
   }
 }
 
@@ -22,8 +26,13 @@ class Main extends React.Component {
   render() {
     return (
         <div className="App">
-          {this.props.currentPos}
-          <Robot currentPos={this.props.currentPos}/>
+          {this.props.inputs}
+          <Robot
+            currentPos={this.props.currentPos}
+            inputs={this.props.inputs}
+            inputFinished={this.props.inputFinished}
+          />
+          <Joypad sendInput={this.props.sendInput} />
         </div>
     );
   }

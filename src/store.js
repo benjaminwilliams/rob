@@ -4,7 +4,8 @@ import rootReducer from './reducers/index';
 const currentPos =[0,0,"N"];
 
 const defaultState = {
-  currentPos
+  currentPos,
+  inputs: []
 };
 
 const store = createStore(rootReducer, defaultState,
