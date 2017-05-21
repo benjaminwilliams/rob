@@ -22,6 +22,8 @@ const movement = {
       case "W":
         x = x - 1;
         break;
+      default:
+
     }
 
 

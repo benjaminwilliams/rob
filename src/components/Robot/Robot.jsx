@@ -25,6 +25,8 @@ export default class Robot extends React.Component{
         break;
       case "W":
         newDirection = "N";
+        break;
+      default:
 
     }
     return newDirection;
@@ -44,6 +46,8 @@ export default class Robot extends React.Component{
         break;
       case "W":
         newDirection = "S";
+        break;
+      default:
 
     }
     return newDirection;
@@ -55,6 +59,7 @@ export default class Robot extends React.Component{
 
     // ignore input if robot is not on the table
     if(!this.props.robotPos.isPlaced){
+      this.props.printToLog('Robot has not been placed yet');
       this.props.inputFinished();
       return false;
     }
@@ -87,6 +92,8 @@ export default class Robot extends React.Component{
         if(newPos === currentPos){
           this.props.printToLog("move is invalid");
         }
+        break;
+      default:
     }
 
 

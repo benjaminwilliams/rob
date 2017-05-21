@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+
 }
 
 .App-header {
@@ -16,4 +16,20 @@
 .joypad {
   background-color: #ddd;
   width: 300px;
+}
+
+.message-log {
+  font-family: "Courier New", sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 200px;
+  color: #4aff1d;
+  background-color: #000;
+  border-top: 1px solid #fff;
+  padding: 20px;
+  text-align: left;
 }

@@ -20,8 +20,8 @@ export default class Joypad extends React.Component{
 
     //get the x,y,f coordinates
     const values = [
-      parseInt(this.refs.x.value),
-      parseInt(this.refs.y.value),
+      parseInt(this.refs.x.value, 10),
+      parseInt(this.refs.y.value, 10),
       this.refs.f.value
     ];
 
