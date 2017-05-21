@@ -8,7 +8,8 @@ const defaultState = {
   robotPos: {
     isPlaced: false,
     currentPos
-  }
+  },
+  log: []
 };
 
 const store = createStore(rootReducer, defaultState,

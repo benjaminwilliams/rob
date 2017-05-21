@@ -25,3 +25,10 @@ export function placeRobot(isPlaced){
     isPlaced
   }
 }
+
+export function printToLog(message){
+  return {
+    type: "PRINT_TO_LOG",
+    message
+  }
+}

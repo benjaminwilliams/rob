@@ -1,5 +1,6 @@
 import React from 'react';
 
+import movement from './movement';
 
 
 export default class Robot extends React.Component{
@@ -7,8 +8,6 @@ export default class Robot extends React.Component{
   constructor(props){
     super(props);
     this.executeInput = this.executeInput.bind(this);
-    this.moveIsValid = this.moveIsValid.bind(this);
-    this.moveRobot = this.moveRobot.bind(this);
   }
 
   rotateRight(current){
@@ -50,40 +49,7 @@ export default class Robot extends React.Component{
     return newDirection;
   }
 
-  moveIsValid(x,y) {
-    return x >= 0 && x <= 5 && y >= 0 && y <= 5;
-  }
 
-  moveRobot(currentPos){
-    let x = currentPos[0];
-    let y = currentPos[1];
-    const f = currentPos[2];
-    let newPos;
-    switch(f){
-      case "N":
-        y = y+1;
-        break;
-      case "E":
-        x = x+1;
-        break;
-      case "S":
-        y = y-1;
-        break;
-      case "W":
-        x = x-1;
-        break;
-    }
-
-
-    if(this.moveIsValid(x,y)){
-      return [x,y,f];
-    }
-    else {
-      console.log('move is invalid!');
-      return currentPos;
-    }
-
-  }
 
   executeInput(input){
 
@@ -113,12 +79,14 @@ export default class Robot extends React.Component{
         newPos = [x,y,f];
         break;
       case 'REPORT':
-        console.log("current position- x: " + x + ", y: " + y + ", Direction: " + f);
+        this.props.printToLog("current position- x: " + x + ", y: " + y + ", Direction: " + f);
         newPos = [x,y,f];
         break;
       case 'MOVE':
-        this.moveRobot(currentPos);
-        newPos = this.moveRobot(currentPos);
+        newPos = movement.moveRobot(currentPos);
+        if(newPos === currentPos){
+          this.props.printToLog("move is invalid");
+        }
     }
 
 

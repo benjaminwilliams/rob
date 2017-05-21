@@ -1,4 +1,5 @@
 import React from 'react';
+import movement from '../Robot/movement';
 
 
 
@@ -17,15 +18,21 @@ export default class Joypad extends React.Component{
   placeRobot(event){
     event.preventDefault();
 
+    //get the x,y,f coordinates
     const values = [
       parseInt(this.refs.x.value),
       parseInt(this.refs.y.value),
       this.refs.f.value
     ];
 
-    this.props.setCurrentPos(values);
-    this.props.sendInput("PLACE");
-
+    // check to make sure placement is valid
+    if(movement.moveIsValid(values[0], values[1])){
+      this.props.setCurrentPos(values); // move robot to position
+      this.props.sendInput("PLACE"); // set isPlaced status
+    }
+    else {
+      this.props.printToLog("Can not place here");
+    }
 
   }
 
