@@ -7,6 +7,8 @@ export default class Robot extends React.Component{
   constructor(props){
     super(props);
     this.executeInput = this.executeInput.bind(this);
+    this.moveIsValid = this.moveIsValid.bind(this);
+    this.moveRobot = this.moveRobot.bind(this);
   }
 
   rotateRight(current){
@@ -48,6 +50,41 @@ export default class Robot extends React.Component{
     return newDirection;
   }
 
+  moveIsValid(x,y) {
+    return x >= 0 && x <= 5 && y >= 0 && y <= 5;
+  }
+
+  moveRobot(currentPos){
+    let x = currentPos[0];
+    let y = currentPos[1];
+    const f = currentPos[2];
+    let newPos;
+    switch(f){
+      case "N":
+        y = y+1;
+        break;
+      case "E":
+        x = x+1;
+        break;
+      case "S":
+        y = y-1;
+        break;
+      case "W":
+        x = x-1;
+        break;
+    }
+
+
+    if(this.moveIsValid(x,y)){
+      return [x,y,f];
+    }
+    else {
+      console.log('move is invalid!');
+      return currentPos;
+    }
+
+  }
+
   executeInput(input){
 
     // ignore input if robot is not on the table
@@ -65,20 +102,25 @@ export default class Robot extends React.Component{
     switch (input){
       case 'PLACE':
         this.props.placeRobot(true);
+        newPos = [x,y,f];
         break;
       case 'RIGHT':
         f = this.rotateRight(f);
+        newPos = [x,y,f];
         break;
       case 'LEFT':
         f = this.rotateLeft(f);
+        newPos = [x,y,f];
         break;
       case 'REPORT':
         console.log("current position- x: " + x + ", y: " + y + ", Direction: " + f);
+        newPos = [x,y,f];
         break;
-      default:
+      case 'MOVE':
+        this.moveRobot(currentPos);
+        newPos = this.moveRobot(currentPos);
     }
 
-    newPos = [x,y,f];
 
     this.props.setCurrentPos(newPos);
   }
@@ -105,14 +147,9 @@ export default class Robot extends React.Component{
 
 
   render(){
-
-    const currentPos = this.props.robotPos.currentPos;
-
-
     return (
       <div>
         <div>{this.props.robotPos.isPlaced ? "Robot is placed" : "Robot is not placed"}</div>
-        <div>Robot, current position: {currentPos}</div>
       </div>
     )
   }

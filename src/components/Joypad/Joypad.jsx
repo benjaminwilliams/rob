@@ -18,11 +18,10 @@ export default class Joypad extends React.Component{
     event.preventDefault();
 
     const values = [
-      this.refs.x.value,
-      this.refs.y.value,
+      parseInt(this.refs.x.value),
+      parseInt(this.refs.y.value),
       this.refs.f.value
     ];
-    console.log(values);
 
     this.props.setCurrentPos(values);
     this.props.sendInput("PLACE");
