@@ -55,7 +55,7 @@ export default class Joypad extends React.Component{
             <label htmlFor="f">Direction</label>
             <input type="text" id="f" ref="f" defaultValue="N" />
           </div>
-          <input type="submit" value="Place" />
+          <input className="btn__place" type="submit" value="Place" />
 
         </form>
         <div className="joypad__move-wrapper">

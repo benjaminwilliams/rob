@@ -4,10 +4,12 @@
  position: relative;
  width: 400px;
  height: 400px;
- margin: 0 auto;
- border: 1px solid #bbb;
+ @media(max-width: $bp-mobile){
+  width: 300px;
+  height: 300px;
+ }
+ margin: 20px auto;
  border-radius: 6px;
- background-color: #eee;
  display: flex;
  flex-direction: column;
 }
@@ -18,12 +20,30 @@
  display: flex;
  flex-direction: row;
  flex: 1;
+ background-color: transparent;
+ .board__tile {
+  background-color: #fff;
+  &:nth-child(even){
+   background-color: #eee;
+  }
+ }
+ &:nth-child(even){
+  background-color: #fff;
+  .board__tile {
+   background-color: #fff;
+   &:nth-child(odd){
+    background-color: #eee;
+   }
+  }
+ }
 }
 .board__tile {
  flex: 1;
  height: 100%;
- border: 1px solid #999;
  color: #aaa;
+ padding: 5px;
+ text-align: center;
+ box-sizing: border-box;
 }
 
 .rob {
@@ -34,6 +54,10 @@
  left: 10px;
  margin-top: -45px;
  margin-left: 25px;
+ @media(max-width: $bp-mobile){
+  margin-top: -35px;
+  margin-left: 15px;
+ }
  border-left: 15px solid transparent;
  border-bottom: 15px solid #444;
  border-right: 15px solid transparent;

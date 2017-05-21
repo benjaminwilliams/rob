@@ -17,11 +17,11 @@ export default class Board extends React.Component{
   renderBoardRow(row){
     return (
       <div className="board__row">
-        <div className="board__tile">{row},0</div>
-        <div className="board__tile">{row},1</div>
-        <div className="board__tile">{row},2</div>
-        <div className="board__tile">{row},3</div>
-        <div className="board__tile">{row},4</div>
+        <div className="board__tile">0,{row}</div>
+        <div className="board__tile">1,{row}</div>
+        <div className="board__tile">2,{row}</div>
+        <div className="board__tile">3,{row}</div>
+        <div className="board__tile">4,{row}</div>
       </div>
     )
   }

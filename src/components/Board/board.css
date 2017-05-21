@@ -2,25 +2,40 @@
   position: relative;
   width: 400px;
   height: 400px;
-  margin: 0 auto;
-  border: 1px solid #bbb;
+  margin: 20px auto;
   border-radius: 6px;
-  background-color: #eee;
   display: flex;
   flex-direction: column; }
+  @media (max-width: 600px) {
+    .board {
+      width: 300px;
+      height: 300px; } }
 
 .board__row {
   width: 100%;
   height: 50px;
   display: flex;
   flex-direction: row;
-  flex: 1; }
+  flex: 1;
+  background-color: transparent; }
+  .board__row .board__tile {
+    background-color: #fff; }
+    .board__row .board__tile:nth-child(even) {
+      background-color: #eee; }
+  .board__row:nth-child(even) {
+    background-color: #fff; }
+    .board__row:nth-child(even) .board__tile {
+      background-color: #fff; }
+      .board__row:nth-child(even) .board__tile:nth-child(odd) {
+        background-color: #eee; }
 
 .board__tile {
   flex: 1;
   height: 100%;
-  border: 1px solid #999;
-  color: #aaa; }
+  color: #aaa;
+  padding: 5px;
+  text-align: center;
+  box-sizing: border-box; }
 
 .rob {
   position: absolute;
@@ -34,6 +49,10 @@
   border-bottom: 15px solid #444;
   border-right: 15px solid transparent;
   transition: transform 0.4s ease-in-out, top 0.6s ease-in-out, left 0.6s ease-in-out; }
+  @media (max-width: 600px) {
+    .rob {
+      margin-top: -35px;
+      margin-left: 15px; } }
   .rob.hidden {
     display: none; }
   .rob.E {

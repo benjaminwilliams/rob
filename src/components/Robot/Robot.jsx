@@ -123,12 +123,8 @@ export default class Robot extends React.Component{
 
 
 
-  render(){
-    return (
-      <div>
-        <div>{this.props.robotPos.isPlaced ? "Robot is placed" : "Robot is not placed"}</div>
-      </div>
-    )
+  render() {
+    return false;
   }
 
 }
