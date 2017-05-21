@@ -1,5 +1,11 @@
-.App {
+@import './styles/variables.scss';
 
+// Common styles are placed here, component specific styles are places in the components folders
+
+
+.App {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .App-header {
@@ -13,10 +19,6 @@
   font-size: large;
 }
 
-.joypad {
-  background-color: #ddd;
-  width: 300px;
-}
 
 .message-log {
   font-family: "Courier New", sans-serif;
@@ -30,6 +32,14 @@
   color: #4aff1d;
   background-color: #000;
   border-top: 1px solid #fff;
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
   text-align: left;
+  h2 {
+    width: 100%;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+  }
 }
+

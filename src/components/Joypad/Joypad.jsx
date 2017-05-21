@@ -1,5 +1,6 @@
 import React from 'react';
 import movement from '../Robot/movement';
+import './JoyPad.css';
 
 
 
@@ -40,19 +41,32 @@ export default class Joypad extends React.Component{
 
     return (
       <div className="joypad">
-        <form onSubmit={this.placeRobot}>
-          <label htmlFor="x">Position X</label>
-          <input type="text" id="x" ref="x" defaultValue="0" />
-          <label htmlFor="y">Position Y</label>
-          <input type="text" id="y" ref="y" defaultValue="0" />
-          <label htmlFor="f">Direction</label>
-          <input type="text" id="f" ref="f" defaultValue="N" />
+        <form onSubmit={this.placeRobot} className="joypad__place">
+          <h2>Place Robot</h2>
+          <div className="joypad__input-group">
+            <label htmlFor="x">Position X</label>
+            <input type="text" id="x" ref="x" defaultValue="0" />
+          </div>
+          <div className="joypad__input-group">
+            <label htmlFor="y">Position Y</label>
+            <input type="text" id="y" ref="y" defaultValue="0" />
+          </div>
+          <div className="joypad__input-group">
+            <label htmlFor="f">Direction</label>
+            <input type="text" id="f" ref="f" defaultValue="N" />
+          </div>
           <input type="submit" value="Place" />
+
         </form>
-        <div onClick={()=>this.props.sendInput("LEFT")}>LEFT</div>
-        <div onClick={()=>this.props.sendInput("RIGHT")}>RIGHT</div>
-        <div onClick={()=>this.props.sendInput("MOVE")}>MOVE</div>
-        <div onClick={()=>this.props.sendInput("REPORT")}>REPORT</div>
+        <div className="joypad__move-wrapper">
+          <h2> Control Robot </h2>
+          <div className="joypad__move">
+            <div className="move__direction move__direction--left" onClick={()=>this.props.sendInput("LEFT")}>LEFT</div>
+            <div className="move__direction move__direction--right" onClick={()=>this.props.sendInput("RIGHT")}>RIGHT</div>
+            <div className="move__direction move__direction--forward" onClick={()=>this.props.sendInput("MOVE")}>MOVE</div>
+            <div className="move__report" onClick={()=>this.props.sendInput("REPORT")}>REPORT</div>
+          </div>
+        </div>
       </div>
     )
   }

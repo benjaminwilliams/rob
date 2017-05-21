@@ -1,0 +1,86 @@
+.joypad {
+  width: 50%;
+  background-color: #bbb;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .joypad h2 {
+    margin: 0; }
+  @media (max-width: 600px) {
+    .joypad {
+      width: 100%; } }
+
+.joypad__place {
+  min-width: 300px;
+  flex: 1 1 auto; }
+  .joypad__place .joypad__input-group {
+    padding-bottom: 10px; }
+  .joypad__place label {
+    display: inline-block;
+    width: 50%; }
+  .joypad__place input {
+    display: inline-block;
+    width: 50px; }
+
+.joypad__move-wrapper {
+  min-width: 330px;
+  flex: 1 1 auto; }
+
+.joypad__move {
+  display: inline-block;
+  position: relative;
+  background-color: #aaa;
+  border: 1px solid #444;
+  width: 300px;
+  height: 100px;
+  font-size: 12px; }
+  .joypad__move .move__direction {
+    position: absolute;
+    text-align: center;
+    cursor: pointer; }
+    .joypad__move .move__direction:hover, .joypad__move .move__direction:active {
+      color: blue; }
+    .joypad__move .move__direction:after {
+      content: " ";
+      position: absolute;
+      left: calc(50% - 15px);
+      top: -35px;
+      width: 0;
+      height: 0; }
+  .joypad__move .move__direction--left {
+    left: 20px;
+    top: 70px; }
+    .joypad__move .move__direction--left:after {
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid #444;
+      left: calc(50% - 10px); }
+  .joypad__move .move__direction--right {
+    left: 80px;
+    top: 70px; }
+    .joypad__move .move__direction--right:after {
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid #444;
+      left: calc(50% - 10px); }
+  .joypad__move .move__direction--forward {
+    left: 45px;
+    top: 30px; }
+    .joypad__move .move__direction--forward:after {
+      top: -20px;
+      border-left: 15px solid transparent;
+      border-bottom: 15px solid #444;
+      border-right: 15px solid transparent; }
+  .joypad__move .move__report {
+    cursor: pointer;
+    position: absolute;
+    left: 220px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid #444;
+    font-size: 12px;
+    line-height: 80px; }

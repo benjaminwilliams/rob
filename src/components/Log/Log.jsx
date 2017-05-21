@@ -1,8 +1,21 @@
 import React from 'react';
-
+import './log.scss';
 
 
 export default class Log extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.renderLogItem = this.renderLogItem.bind(this);
+  }
+
+
+  renderLogItem(message){
+    return (
+      <div> > {message}</div>
+    )
+
+  }
 
   render(){
 
@@ -11,8 +24,8 @@ export default class Log extends React.Component{
 
     return (
       <div className="message-log">
-
-        <div>log: {log}</div>
+        <h2>Message log</h2>
+        {log.map(message => this.renderLogItem(message))}
       </div>
     )
   }

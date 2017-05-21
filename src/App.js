@@ -32,7 +32,7 @@ class Main extends React.Component {
   render() {
     return (
         <div className="App">
-          {this.props.inputs}
+          <Board robotPos={this.props.robotPos} />
           <Robot
             robotPos={this.props.robotPos}
             inputs={this.props.inputs}
@@ -46,7 +46,7 @@ class Main extends React.Component {
             setCurrentPos={this.props.setCurrentPos}
             printToLog={this.props.printToLog}
           />
-          <Board robotPos={this.props.robotPos} />
+
           <Log log={this.props.log} />
         </div>
     );

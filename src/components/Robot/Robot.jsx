@@ -57,6 +57,7 @@ export default class Robot extends React.Component{
 
   executeInput(input){
 
+    console.log('hi');
     // ignore input if robot is not on the table
     if(!this.props.robotPos.isPlaced){
       this.props.printToLog('Robot has not been placed yet');
@@ -114,6 +115,7 @@ export default class Robot extends React.Component{
         this.props.inputFinished(); // and then delete the first input in queue
       }
       else{
+        this.props.printToLog('Robot is not placed on board');
         this.props.inputFinished();
       }
     }
