@@ -23,11 +23,15 @@ export default class Joypad extends React.Component{
     const values = [
       parseInt(this.refs.x.value, 10),
       parseInt(this.refs.y.value, 10),
-      this.refs.f.value
+      this.refs.f.value.toUpperCase()
     ];
 
     // check to make sure placement is valid
     if(movement.moveIsValid(values[0], values[1])){
+      if(!(values[2] === "N" || values[2] === "E" || values[2] === "S" || values[2] === "W")){
+        this.props.printToLog("Invalid Direction, please use N, E, S, or W");
+        return;
+      }
       this.props.setCurrentPos(values); // move robot to position
       this.props.sendInput("PLACE"); // set isPlaced status
     }
