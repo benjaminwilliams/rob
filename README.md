@@ -14,7 +14,11 @@ You will need node.js
 1. cd into the directory and run `npm install`
 1. run `npm start` to start. This should automatically open a browser to `localhost:3333`
 
+## Unit Tests
 
+Tests are contained within the individual component folders. 
+ 
+Use `npm test` to run the tests with a watcher
 
 ## The build pipeline
 

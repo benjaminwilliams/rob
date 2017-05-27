@@ -39,16 +39,64 @@ describe('Robot', ()=>{
     expect(mock.robotPos.currentPos).toEqual([0,0,'N']);
   });
   it('should be able to change the position', ()=>{
-    mock.robotPos.currentPos = [1,1,'S'];
+    mock.robotPos.currentPos = [1,1,'N'];
     wrapper.setProps({robotPos: mock.robotPos});
-    expect(mock.robotPos.currentPos).toEqual([1,1,'S']);
+    expect(mock.robotPos.currentPos).toEqual([1,1,'N']);
   });
   it('should allow move when placed', ()=>{
-    wrapper.setProps({inputs: ["PLACE","MOVE"]});
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["PLACE"]});
     expect(mock.robotPos.isPlaced).toEqual(true);
   });
   it('should report the correct location', ()=>{
-    wrapper.setProps({inputs: ["REPORT", "PLACE", "MOVE"]});
-    expect(mock.log).toEqual("current position: 1,1,S");
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["REPORT"]});
+    expect(mock.log).toEqual("current position: 1,1,N");
+  });
+  it('should rotate correctly when turning right', ()=>{
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["RIGHT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"E"]);
+
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["RIGHT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"S"]);
+
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["RIGHT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"W"]);
+
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["RIGHT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"N"]);
+  });
+  it('should rotate correctly when turning left', ()=>{
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["LEFT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"W"]);
+
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["LEFT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"S"]);
+
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["LEFT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"E"]);
+
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["LEFT"]});
+    expect(mock.robotPos.currentPos).toEqual([1,1,"N"]);
+
+  });
+  it('should allow moving for valid position', ()=>{
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["MOVE"]});
+    expect(mock.robotPos.currentPos).toEqual([1,2,"N"]);
+  });
+  it('should allow moving for valid position', ()=>{
+    mock.robotPos.currentPos = [7,7,'N'];
+    wrapper.setProps({inputs: []}); //clear inputs
+    wrapper.setProps({inputs: ["MOVE"]});
+    expect(mock.log).toEqual("move is invalid");
   });
 });

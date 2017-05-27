@@ -1,6 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import JoyPad from './Joypad';
+import movement from '../Robot/movement';
 
 const mock = {
   input: "",
@@ -14,7 +15,7 @@ const setPos = (input) => mock.currentPos = input;
 
 describe('Joypad', ()=>{
 
-  const joypad = shallow(
+  const joypad = mount(
     <JoyPad  sendInput={setInput} setCurrentPos={setPos} printToLog={printToLog}/>
   );
 
@@ -37,8 +38,20 @@ describe('Joypad', ()=>{
     joypad.find('.t-right').simulate('click');
     expect(mock.input).toBe("RIGHT");
   });
+  it('should PLACE when clicked', ()=>{
+    joypad.find('.t-place').get(0).click(); //cant use simulate to submit a form :/
+    expect(mock.input).toBe("PLACE");
+  });
   it('should send REPORT when clicked', ()=>{
     joypad.find('.t-report').simulate('click');
     expect(mock.input).toBe("REPORT");
+  });
+  it('should not PLACE when position outside board', ()=>{
+    mock.input = "";
+    joypad.find('.t-x-input').node.value = 20;
+    joypad.find('.t-y-input').node.value = 20;
+    joypad.find('.t-place').get(0).click(); //cant use simulate to submit a form :/
+    expect(mock.input).toBe("");
+    expect(mock.log).toBe("Can not place here");
   });
 });
