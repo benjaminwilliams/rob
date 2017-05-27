@@ -49,26 +49,26 @@ export default class Joypad extends React.Component{
           <h2>Place Robot</h2>
           <div className="joypad__input-group">
             <label htmlFor="x">Position X</label>
-            <input type="text" id="x" ref="x" defaultValue="0" />
+            <input type="text" id="x" ref="x" defaultValue="0" className="t-x-input"/>
           </div>
           <div className="joypad__input-group">
             <label htmlFor="y">Position Y</label>
-            <input type="text" id="y" ref="y" defaultValue="0" />
+            <input type="text" id="y" ref="y" defaultValue="0" className="t-y-input"/>
           </div>
           <div className="joypad__input-group">
             <label htmlFor="f">Direction</label>
-            <input type="text" id="f" ref="f" defaultValue="N" />
+            <input type="text" id="f" ref="f" defaultValue="N" className="t-f-input"/>
           </div>
-          <input className="btn__place" type="submit" value="Place" />
+          <input className="btn__place t-place" type="submit" value="Place" />
 
         </form>
         <div className="joypad__move-wrapper">
           <h2> Control Robot </h2>
           <div className="joypad__move">
-            <div className="move__direction move__direction--left" onClick={()=>this.props.sendInput("LEFT")}>LEFT</div>
-            <div className="move__direction move__direction--right" onClick={()=>this.props.sendInput("RIGHT")}>RIGHT</div>
-            <div className="move__direction move__direction--forward" onClick={()=>this.props.sendInput("MOVE")}>MOVE</div>
-            <div className="move__report" onClick={()=>this.props.sendInput("REPORT")}>REPORT</div>
+            <div className="move__direction move__direction--left t-left" onClick={()=>this.props.sendInput("LEFT")}>LEFT</div>
+            <div className="move__direction move__direction--right t-right" onClick={()=>this.props.sendInput("RIGHT")}>RIGHT</div>
+            <div className="move__direction move__direction--forward t-move" onClick={()=>this.props.sendInput("MOVE")}>MOVE</div>
+            <div className="move__report t-report" onClick={()=>this.props.sendInput("REPORT")}>REPORT</div>
           </div>
         </div>
       </div>

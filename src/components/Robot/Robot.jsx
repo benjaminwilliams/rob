@@ -57,7 +57,6 @@ export default class Robot extends React.Component{
 
   executeInput(input){
 
-    console.log('hi');
     // ignore input if robot is not on the table
     if(!this.props.robotPos.isPlaced){
       this.props.printToLog('Robot has not been placed yet');
